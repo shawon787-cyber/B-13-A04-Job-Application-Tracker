@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+</head>
+<body class="py-10 px-6 max-w-5xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-800">Job Application Tracker</h1>
+    <div class="grid grid-cols-3 gap-4 mt-6">
+        <div class=" bg-stone-100 p-5 rounded-xl">
+            <p class="text-md font-semibold">Total</p>
+            <p class="allTotal text-3xl font-semibold">0</p>
+        </div>
+        <div class=" bg-stone-100 p-5 rounded-xl">
+            <p class="text-md font-semibold text-[#00bfaa]">Interview</p>
+            <p id="interview-total" class="interviewTotal text-3xl font-semibold">0</p>
+        </div>
+        <div class=" bg-stone-100 p-5 rounded-xl">
+            <p class="text-md font-semibold text-[#eb5971]">Rejected</p>
+            <p id="rejected-total" class="rejectTotal text-3xl font-semibold">0</p>
+        </div>
+        
+    </div>
+    <div class="mt-8 flex items-center justify-between">
+        <h3 class="text-2xl font-semibold">Available Jobs</h3>
+        <p id="jobs">8 Jobs</p>
+    </div>
+    <!-- toggle div -->
+     <div class="mt-5 flex gap-4">
+        <button onclick="btnToggle('allBtn')" id="allBtn" class="all-btn btn bg-black text-white">All</button>
+        <button onclick="btnToggle('interviewBtn')" id="interviewBtn" class="copy-btn btn bg-gray-200 text-black">Interview</button>
+        <button onclick="btnToggle('rejectedBtn')" id="rejectedBtn" class="call-btn btn bg-gray-200 text-black">Rejected</button>
+     </div>
+     <!-- filtered section -->
+      <section id="filtered-section" class="mt-6 hidden">
+
+      </section>
+      <!-- all cards section -->
+    <section id="container" class="mt-8 grid lg:grid-cols-2 gap-6">
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">Mobile First Corporation</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">React Native Developer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none list-1">Remote </li>
+                <li class="list-disc list-2">Full-time</li>
+                <li class="list-disc list-3">$130,000 - $175,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">TechNova Solutions</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">Frontend Developer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none">On-site </li>
+                <li class="list-disc">Full-time</li>
+                <li class="list-disc">$90,000 - $120,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Create interactive web interfaces using React and modern JavaScript frameworks for enterprise clients.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">CloudSphere Inc.</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">Backend Developer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none">Remote </li>
+                <li class="list-disc">Contract</li>
+                <li class="list-disc">$110,000 - $140,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Design and maintain scalable backend systems using Node.js, Express, and MongoDB for cloud-based applications.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">NextGen AI</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">Machine Learning Engineer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none">Remote </li>
+                <li class="list-disc">Full-time</li>
+                <li class="list-disc">$150,000 - $195,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Develop and deploy ML models for predictive analytics and AI-driven applications across various industries.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">GreenByte Tech</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">DevOps Engineer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none">Hybrid </li>
+                <li class="list-disc">Full-time</li>
+                <li class="list-disc">$120,000 - $155,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Implement CI/CD pipelines and cloud infrastructure automation for scalable software deployments.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">Quantum Leap Systems</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">Full Stack Developer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none">On-site </li>
+                <li class="list-disc">Full-time</li>
+                <li class="list-disc">$110,000 - $135,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Work on end-to-end web applications, integrating frontend, backend, and database solutions efficiently.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">Solaris Tech</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">UI/UX Designer</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class="list-none">Remote </li>
+                <li class="list-disc">Contract</li>
+                <li class="list-disc">$80,000 - $115,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Design user-centered interfaces and experiences for web and mobile applications with attention to detail.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+
+        <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
+            <div>
+                <h3 class="card-heading text-2xl font-semibold">BlueWave Analytics</h3>
+            <p class="card-sub-head text-sm text-gray-500 mt-1">Data Analyst</p>
+            <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <li class=" list-none">Hybrid </li>
+                <li class="list-disc">Full-time</li>
+                <li class="list-disc">$130,000 - $175,000</li>
+            </ul>
+            <h4 class="applied-status font-medium mt-6 bg-sky-100 p-2 w-32 text-center rounded-md ">NOT APPLIED</h4>
+            <p class="description text-gray-500 mt-4">Analyze large datasets, generate insights, and create visualizations to support business decisions.</p>
+            <div class="flex gap-3 mt-5">
+                <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
+                <div>
+                    <button class="reject-btn btn btn-outline btn-error text-xl py-4">Rejected</button>
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="delete-btn bg-gray-200 p-2 rounded-md text-[#eb5971] cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- no jobs section -->
+     <section id="no-job" class="mt-20 text-center hidden">
+        <p><i class="fa-solid fa-file-circle-xmark text-blue-400 text-6xl"></i></p>
+        <h3 class="text-4xl font-bold mt-6 text-gray-700">No Jobs Available</h3>
+        <p class="font-medium text-gray-500 mt-1">Check back soon for new job opportunities</p>
+     </section>
+
+    <script src="job.js"></script>
+</body>
+</html>
