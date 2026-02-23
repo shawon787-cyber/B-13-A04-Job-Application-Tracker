@@ -30,7 +30,7 @@ function renderJob(list){
         div.className = 'job-card bg-stone-100 p-8 rounded-xl flex justify-between mb-6';
         div.innerHTML = `
             <div>
-                <h3 class="card-heading text-2xl font-semibold">${job.cardTitle}</h3>
+                <h3 class="card-heading text-xl md:text-2xl font-semibold">${job.cardTitle}</h3>
                 <p class="card-sub-head text-sm text-gray-500 mt-1">${job.cardSubtitle}</p>
                 <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
                     <li class="list-none">${job.textList1 || ''}</li>
