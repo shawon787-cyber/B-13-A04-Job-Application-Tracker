@@ -28,20 +28,19 @@
         
     </div>
     <div class="mt-8 flex items-center justify-between">
-        <h3 class="text-2xl font-semibold">Available Jobs</h3>
+        <h3 class="text-xl lg:text-2xl font-semibold">Available Jobs</h3>
         <p id="jobs">8 Jobs</p>
     </div>
-    <!-- toggle div -->
-     <div class="mt-5 flex gap-4">
+     <div class="mt-4 flex gap-4">
         <button onclick="btnToggle('allBtn')" id="allBtn" class="all-btn btn bg-black text-white">All</button>
         <button onclick="btnToggle('interviewBtn')" id="interviewBtn" class="copy-btn btn bg-gray-200 text-black">Interview</button>
         <button onclick="btnToggle('rejectedBtn')" id="rejectedBtn" class="call-btn btn bg-gray-200 text-black">Rejected</button>
      </div>
-     <!-- filtered section -->
+     
       <section id="filtered-section" class="mt-6 hidden">
 
       </section>
-      <!-- all cards section -->
+     
     <section id="container" class="mt-8 grid lg:grid-cols-2 gap-6">
         <div class="job-card bg-stone-100 p-8 rounded-xl flex justify-between">
             <div>
@@ -227,7 +226,7 @@
         
     </section>
 
-    <!-- no jobs section -->
+   
      <section id="no-job" class="mt-20 text-center hidden">
         <p><i class="fa-solid fa-file-circle-xmark text-blue-400 text-6xl"></i></p>
         <h3 class="text-4xl font-bold mt-6 text-gray-700">No Jobs Available</h3>
