@@ -160,7 +160,14 @@ document.addEventListener('click', function(event){
     const textList = card.querySelector(".text-list").innerText;
     const description = card.querySelector(".description").innerText;
 
-    const cardInfo = { cardTitle, cardSubtitle, textList1:textList.split("\n")[0], textList2:textList.split("\n")[1], textList3:textList.split("\n")[2], description };
+    const cardInfo = { 
+                        cardTitle, 
+                        cardSubtitle, 
+                        textList1:textList.split("\n")[0], 
+                        textList2:textList.split("\n")[1], 
+                        textList3:textList.split("\n")[2], 
+                        description 
+                        };
 
     if(event.target.classList.contains('interview-btn')){
         if(currentStatus !== "INTERVIEW"){
