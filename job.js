@@ -27,18 +27,18 @@ function renderJob(list){
     list.forEach(job => {
         let statusClass = getStatusClass(job.appliedStatus);
         let div = document.createElement('div');
-        div.className = 'job-card bg-stone-100 p-8 rounded-xl flex justify-between mb-6';
+        div.className = 'job-card bg-stone-100 p-5 rounded-xl flex justify-between mb-6';
         div.innerHTML = `
             <div>
-                <h3 class="card-heading text-xl md:text-2xl font-semibold">${job.cardTitle}</h3>
-                <p class="card-sub-head text-sm text-gray-500 mt-1">${job.cardSubtitle}</p>
-                <ul class="text-list flex gap-8 mt-4 text-sm text-gray-500">
+                <h3 class="card-heading text-xl font-semibold">${job.cardTitle}</h3>
+                <p class="card-sub-head text-xs text-gray-500 mt-1">${job.cardSubtitle}</p>
+                <ul class="text-list flex gap-6 mt-4 text-xs text-gray-500">
                     <li class="list-none">${job.textList1 || ''}</li>
                     <li class="list-disc">${job.textList2 || ''}</li>
                     <li class="list-disc">${job.textList3 || ''}</li>
                 </ul>
                 <h4 class="applied-status font-medium mt-6 ${statusClass} p-2 w-32 text-center rounded-md">${job.appliedStatus}</h4>
-                <p class="description text-gray-500 mt-4">${job.description}</p>
+                <p class="description text-gray-500 mt-4 text-sm">${job.description}</p>
                 <div class="flex gap-3 mt-5">
                     <button class="interview-btn btn btn-outline btn-accent text-xl py-4">Interview</button>
                     <div>
